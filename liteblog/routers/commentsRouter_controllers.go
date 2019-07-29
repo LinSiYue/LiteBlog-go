@@ -27,6 +27,15 @@ func init() {
 
     beego.GlobalControllerRouter["golearn/lsyproject/liteblog/controllers:IndexController"] = append(beego.GlobalControllerRouter["golearn/lsyproject/liteblog/controllers:IndexController"],
         beego.ControllerComments{
+            Method: "GetComment",
+            Router: `/comment/:key`,
+            AllowHTTPMethods: []string{"get"},
+            MethodParams: param.Make(),
+            Filters: nil,
+            Params: nil})
+
+    beego.GlobalControllerRouter["golearn/lsyproject/liteblog/controllers:IndexController"] = append(beego.GlobalControllerRouter["golearn/lsyproject/liteblog/controllers:IndexController"],
+        beego.ControllerComments{
             Method: "GetDetails",
             Router: `/details/:key`,
             AllowHTTPMethods: []string{"get"},
